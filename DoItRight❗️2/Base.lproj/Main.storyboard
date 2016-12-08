@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="972" y="37.331334332833585"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Task View Controller-->
         <scene sceneID="9VU-W8-vVc">
             <objects>
-                <viewController id="x1Q-Uu-7PH" sceneMemberID="viewController">
+                <viewController id="x1Q-Uu-7PH" customClass="CreateTaskViewController" customModule="DoItRight__2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PEj-O4-4SD"/>
                         <viewControllerLayoutGuide type="bottom" id="CKk-iZ-pJP"/>
@@ -58,12 +59,54 @@
                     <view key="view" contentMode="scaleToFill" id="rgm-F9-fkH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7h-E2-aZq">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M6Y-lM-uen">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqr-Sc-9op">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AiF-WR-aW2"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVC-2V-ytm">
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="x1Q-Uu-7PH" eventType="touchUpInside" id="p6C-Cq-GOI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yqr-Sc-9op" firstAttribute="top" secondItem="M6Y-lM-uen" secondAttribute="bottom" constant="30" id="0yV-tG-IR9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M6Y-lM-uen" secondAttribute="trailing" constant="40" id="2jx-8l-7bb"/>
+                            <constraint firstItem="jVC-2V-ytm" firstAttribute="centerX" secondItem="rgm-F9-fkH" secondAttribute="centerX" id="9YF-fO-9pS"/>
+                            <constraint firstItem="AiF-WR-aW2" firstAttribute="top" secondItem="yqr-Sc-9op" secondAttribute="bottom" constant="10" id="Ldl-AL-Pbn"/>
+                            <constraint firstItem="r7h-E2-aZq" firstAttribute="top" secondItem="PEj-O4-4SD" secondAttribute="bottom" constant="15" id="M2k-Ah-Le4"/>
+                            <constraint firstItem="M6Y-lM-uen" firstAttribute="leading" secondItem="rgm-F9-fkH" secondAttribute="leadingMargin" constant="40" id="Syf-qA-SmX"/>
+                            <constraint firstItem="M6Y-lM-uen" firstAttribute="top" secondItem="r7h-E2-aZq" secondAttribute="bottom" constant="10" id="fVA-Oo-4e9"/>
+                            <constraint firstItem="yqr-Sc-9op" firstAttribute="centerX" secondItem="rgm-F9-fkH" secondAttribute="centerX" id="g90-NL-mzj"/>
+                            <constraint firstItem="r7h-E2-aZq" firstAttribute="centerX" secondItem="rgm-F9-fkH" secondAttribute="centerX" id="jfF-dk-0s5"/>
+                            <constraint firstItem="AiF-WR-aW2" firstAttribute="centerX" secondItem="rgm-F9-fkH" secondAttribute="centerX" id="sSQ-d4-MaX"/>
+                            <constraint firstItem="M6Y-lM-uen" firstAttribute="centerX" secondItem="rgm-F9-fkH" secondAttribute="centerX" id="wRl-OZ-z5M"/>
+                            <constraint firstItem="jVC-2V-ytm" firstAttribute="top" secondItem="AiF-WR-aW2" secondAttribute="bottom" constant="30" id="xoS-T0-MLr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="importantSwitch" destination="AiF-WR-aW2" id="SY0-WA-e93"/>
+                        <outlet property="taskNameTextField" destination="M6Y-lM-uen" id="l56-BX-vle"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azn-Af-A7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="36"/>
+            <point key="canvasLocation" x="1836" y="35.532233883058474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TNE-PM-C3Z">
